@@ -1,0 +1,23 @@
+<main class="container">
+  <h2> Search For Guthub User </h2>
+
+  <app-search 
+    [loading]="(loading$ | async) || false"
+    [initialQuery]="(query$ | async) ? (query$ | async) : ''" 
+    (search)="onSearch($event)" />
+
+  <app-error-msg *ngIf="(error$ | async) as error" [error]="error" />
+
+  <app-search-result 
+    [users]="(users$ | async) ? (users$ | async) : []" 
+    [loading]="(loading$ | async) || false"
+    [totalCount]="(totalCount$ | async) || 0" 
+    [currentPage]="(currentPage$ | async) || 1"
+    [pageSize]="(perPage$ | async) || 10" 
+    [query]="(query$ | async) || ''" 
+    [sort]="sort$ | async"
+    [order]="order$ | async" 
+    (userSelected)="onUserSelected($event)" 
+    (pageChanged)="onPageChanged($event)" />
+
+</main>

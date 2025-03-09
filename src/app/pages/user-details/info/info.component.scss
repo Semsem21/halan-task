@@ -1,0 +1,105 @@
+.user-details-container {
+  padding: 10px 0;
+
+  .user-card {
+    display: flex;
+    gap: 24px;
+
+    .user-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .user-info {
+      flex: 1;
+
+      h2 {
+        margin: 0;
+        font-size: 24px;
+      }
+
+      h3 {
+        margin: 0;
+        font-size: 16px;
+        color: #666;
+      }
+
+      .bio {
+        margin: 19px 0;
+      }
+
+      .stats {
+        display: flex;
+        gap: 27px;
+
+        .stat {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+
+          mat-icon {
+            font-size: 18px;
+            height: 18px;
+            width: 18px;
+          }
+        }
+      }
+
+      .details {
+        margin: 19px 0;
+
+        .detail {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          margin-bottom: 8px;
+
+          mat-icon {
+            color: #666;
+          }
+
+          a {
+            color: #3f51b5;
+            text-decoration: none;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+
+      .github-link {
+        margin: 6px 0 8px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .user-details-container {
+    .user-card {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      .user-avatar {
+        margin-bottom: 16px;
+      }
+
+      .user-info {
+        .stats {
+          justify-content: center;
+        }
+
+        .details {
+          .detail {
+            justify-content: center;
+          }
+        }
+      }
+    }
+  }
+}

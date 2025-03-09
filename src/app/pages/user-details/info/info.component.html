@@ -1,0 +1,55 @@
+<main class="user-details-container">
+  <mat-card>
+    <section class="user-card">
+      <img [src]="user.avatar_url" [alt]="user.login + '\'s avatar'" class="user-avatar">
+
+      <section class="user-info">
+        <h2> {{ user.name || user.login }} </h2>
+        <h3 *ngIf="user.name"> &commat;{{ user.login }} </h3>
+        <p class="bio" *ngIf="user.bio" > {{ user.bio }} </p>
+
+        <section class="stats">
+          <article class="stat">
+            <mat-icon>people</mat-icon>
+            <span>{{ user.followers }} followers</span>
+          </article>
+          <article class="stat">
+            <mat-icon>person_add</mat-icon>
+            <span>{{ user.following }} following</span>
+          </article>
+          <article class="stat">
+            <mat-icon>code</mat-icon>
+            <span>{{ user.public_repos }} repositories</span>
+          </article>
+        </section>
+
+        <section class="details">
+          <article class="detail" *ngIf="user.company" >
+            <mat-icon>business</mat-icon>
+            <span>{{ user.company }}</span>
+          </article>
+          <article class="detail" *ngIf="user.location">
+            <mat-icon>location_on</mat-icon>
+            <span>{{ user.location }}</span>
+          </article>
+          <article class="detail" *ngIf="user.email">
+            <mat-icon>email</mat-icon>
+            <span>{{ user.email }}</span>
+          </article>
+          <article class="detail" *ngIf="user.blog">
+            <mat-icon>link</mat-icon>
+            <a [href]="user.blog" target="_blank" rel="noopener noreferrer">{{ user.blog }}</a>
+          </article>
+          <article class="detail">
+            <mat-icon>calendar_today</mat-icon>
+            <span>Joined on {{ formatDate(user.created_at) }}</span>
+          </article>
+        </section>
+
+        <a class="github-link" mat-raised-button color="primary" [href]="user.html_url" target="_blank">
+          <mat-icon>open_in_new</mat-icon> View on GitHub
+        </a>
+      </section>
+    </section>
+  </mat-card>
+</main>

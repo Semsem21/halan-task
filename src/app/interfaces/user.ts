@@ -35,9 +35,3 @@ export interface GitHubUser extends GitHubUserBasic {
   created_at: string;
   updated_at: string;
 }
-
-
-
-
-
-

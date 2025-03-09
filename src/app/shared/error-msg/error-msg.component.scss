@@ -1,0 +1,25 @@
+.error-container {
+  display: flex;
+  align-items: flex-start;
+  padding: 16px;
+  border-radius: 4px;
+  background-color: rgba(244, 67, 54, 0.1);
+  margin-bottom: 16px;
+
+  .error-icon {
+    color: #f44336;
+    margin-right: 12px;
+    font-size: 24px;
+    height: 24px;
+    width: 24px;
+  }
+
+  .error-content {
+    flex: 1;
+
+    .error-message {
+      margin: 0 0 8px 0;
+      color: rgba(0, 0, 0, 0.87);
+    }
+  }
+}

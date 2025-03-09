@@ -1,0 +1,57 @@
+.user-list-container {
+  margin: 21px 0;
+
+  .loading-container {
+    padding: 40px 0;
+    margin: auto;
+  }
+
+  .start-search {
+    text-align: center;
+    padding: 40px 0;
+    color: #666;
+
+    mat-icon {
+      font-size: 48px;
+      height: 48px;
+      width: 48px;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 18px;
+      margin: 0;
+    }
+  }
+
+  .results-summary {
+    margin-bottom: 16px;
+    font-size: 16px;
+    .counter-colors {
+      color: #a58ad4;
+    }
+  }
+
+  table {
+    width: 100%;
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 100%;
+      object-fit: cover;
+    }
+
+    .user-row {
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.04);
+      }
+    }
+  }
+
+  mat-paginator {
+    margin-top: 16px;
+  }
+}

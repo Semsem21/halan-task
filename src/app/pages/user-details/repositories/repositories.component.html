@@ -1,0 +1,75 @@
+<main class="repositories-section">
+  <h3>Repositories ({{ user.public_repos }})</h3>
+
+  <article class="no-repos-message" *ngIf="repositories.length === 0">
+    <mat-icon>folder_off</mat-icon>
+    <p>No repositories found for this user.</p>
+  </article>
+
+  <table *ngIf="repositories.length > 0" mat-table [dataSource]="repositories" matSort class="mat-elevation-z8">
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="repo-row"></tr>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="name">Repository</th>
+      <td mat-cell *matCellDef="let repo">{{ repo.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef>Description</th>
+      <td mat-cell *matCellDef="let repo">{{ repo.description || 'No description' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="language">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="language">Language</th>
+      <td mat-cell *matCellDef="let repo">
+        <span class="language-tag" *ngIf="repo.language">{{ repo.language }}</span>
+        <span *ngIf="!repo.language">-----</span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="stars">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="stargazers_count">Stars</th>
+      <td mat-cell *matCellDef="let repo">
+        <article class="stat-display">
+          <mat-icon>star</mat-icon>
+          <span>{{ repo.stargazers_count }}</span>
+        </article>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="forks">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="forks_count">Forks</th>
+      <td mat-cell *matCellDef="let repo">
+        <article class="stat-display">
+          <mat-icon>fork_right</mat-icon>
+          <span>{{ repo.forks_count }}</span>
+        </article>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="updated">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="updated_at">Updated</th>
+      <td mat-cell *matCellDef="let repo">{{ formatDate(repo.updated_at) }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let repo">
+        <a mat-icon-button color="primary" [href]="repo.html_url" target="_blank" aria-label="Open repository">
+          <mat-icon>open_in_new</mat-icon>
+        </a>
+      </td>
+    </ng-container>
+  </table>
+
+  <mat-paginator
+    [length]="user.public_repos" 
+    [pageSize]="reposPageSize"
+    [pageIndex]="reposCurrentPage - 1" 
+    [pageSizeOptions]="[5, 10, 25, 50]" 
+    (page)="onPageChange($event)"
+    aria-label="Select page" />
+  
+</main>

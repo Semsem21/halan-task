@@ -2,7 +2,7 @@ export interface RepositorySearchCriteria {
   username: string;
   page: number;
   perPage: number;
-  sort?: string;
+  sort?: any;
   direction?: 'asc' | 'desc';
 }
 

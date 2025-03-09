@@ -1,0 +1,58 @@
+.repositories-section {
+  padding: 10px 0;
+
+  h3 {
+    margin: 17px 11px;
+  }
+
+  .no-repos-message {
+    text-align: center;
+    padding: 40px 0;
+    color: #666;
+
+    mat-icon {
+      font-size: 48px;
+      height: 48px;
+      width: 48px;
+    }
+
+    p {
+      font-size: 18px;
+      margin: 0;
+    }
+  }
+
+  table {
+    width: 100%;
+
+    .repo-row {
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.04);
+      }
+    }
+
+    .language-tag {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 12px;
+      background-color: #e0e0e0;
+      font-size: 12px;
+    }
+
+    .stat-display {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+
+      mat-icon {
+        font-size: 16px;
+        height: 16px;
+        width: 16px;
+      }
+    }
+  }
+
+  mat-paginator {
+    margin-top: 16px;
+  }
+}

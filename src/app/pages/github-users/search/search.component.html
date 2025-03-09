@@ -1,0 +1,35 @@
+<form [formGroup]="searchForm" (ngSubmit)="onSubmit()" class="search-form">
+  <section class="search-container">
+    <mat-form-field appearance="outline" class="search-input">
+      <mat-label> Search GitHub Users</mat-label>
+      <input matInput formControlName="query" />
+      <mat-icon matPrefix>search</mat-icon>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="searchForm.invalid || loading">
+      <mat-icon *ngIf="!loading">search</mat-icon>
+      <mat-spinner *ngIf="loading" diameter="24" />
+      <span *ngIf="!loading"> Search </span>
+    </button>
+  </section>
+
+  <section class="filters-container">
+    <mat-form-field appearance="outline">
+      <mat-label> Sort By </mat-label>
+      <mat-select formControlName="sort">
+        <mat-option *ngFor="let option of sortOptions" [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label> Order </mat-label>
+      <mat-select formControlName="order">
+        <mat-option *ngFor="let option of orderOptions" [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </section>
+</form>
